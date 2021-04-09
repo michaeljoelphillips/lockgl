@@ -1,0 +1,13 @@
+---
+Checks:          'clang-diagnostics-*,clang-analyzer-*,readability-identifier-naming'
+FormatStyle:     file
+
+CheckOptions:
+  - { key: readability-identifier-naming.StructCase,             value: lower_case }
+  - { key: readability-identifier-naming.TemplateParameterCase,  value: lower_case }
+  - { key: readability-identifier-naming.FunctionCase,           value: lower_case }
+  - { key: readability-identifier-naming.VariableCase,           value: lower_case }
+  - { key: readability-identifier-naming.ClassMemberCase,        value: lower_case }
+  - { key: readability-identifier-naming.TemplateParameterCase,  value: lower_case }
+  - { key: readability-identifier-naming.TypedefCase,            value: lower_case }
+  - { key: readability-identifier-naming.PointerParameterCase,   value: lower_case }
