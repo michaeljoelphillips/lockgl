@@ -6,7 +6,7 @@ typedef struct {
 typedef void (*backspace_callback)();
 typedef void (*cancel_callback)();
 typedef void (*enter_callback)();
-typedef const char *(*keypress_callback)(const key_pressed *event);
+typedef void (*keypress_callback)(const key_pressed *event);
 
 typedef struct {
 	backspace_callback on_backspace;

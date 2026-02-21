@@ -9,7 +9,7 @@ void clear();
 void on_backspace();
 void on_escape();
 void on_enter();
-const char *on_keypress(const key_pressed *event);
+void on_keypress(const key_pressed *event);
 
 const user *current_user;
 int password_length = 0;
@@ -22,22 +22,24 @@ callbacks display_callbacks = {
 	.on_keypress = on_keypress,
 };
 
-const char *on_keypress(const key_pressed *event)
+void on_keypress(const key_pressed *event)
 {
 	if (password_length + event->size + 1 >= sizeof(password_buffer)) {
-		password_length = 0;
+    clear();
 	}
 
 	// NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling)
 	strncat(password_buffer, event->data, event->size);
 	password_length += event->size;
-
-	return password_buffer;
 }
 
 void on_backspace()
 {
-	password_buffer[--password_length] = '\0';
+	password_buffer[password_length] = '\0';
+
+  if (password_length > 0) {
+    password_length--;
+  }
 }
 
 void on_enter()
